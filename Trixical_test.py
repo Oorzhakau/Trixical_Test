@@ -44,15 +44,16 @@ class LineBuilder:
                 row.write(1,ynew[num])
             self.book.save("test.xls")
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.set_title('click to build line segments')
+if __name__ == "__main__":
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.set_title('Click on canvas to paint line\nPress "x" to clear canvas or "w" to interpolate and save data')
 
-line, = ax.plot([], [])  # empty line
-linebuilder = LineBuilder(line)
-xl = ax.set_xlabel('Press x to clear canvas\nPress w to interpolate and save data')
-plt.xlim(0, 0.16)
-plt.ylim(0, 0.6)
-plt.xlabel('eps, d.e.')
-plt.ylabel('Sigma1 - Sigma3, MPa')
-plt.show()
+    line, = ax.plot([], [])  # empty line
+    linebuilder = LineBuilder(line)
+    xl = ax.set_xlabel('')
+    plt.xlim(0, 0.16)
+    plt.ylim(0, 0.6)
+    plt.xlabel('eps, d.e.')
+    plt.ylabel('Sigma1 - Sigma3, MPa')
+    plt.show()
